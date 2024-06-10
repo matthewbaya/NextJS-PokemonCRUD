@@ -1,3 +1,5 @@
+import DeleteButton from "./DeleteButton";
+
 export default function PokemonCard({ pokemon }: { pokemon: Pokemon }) {
   return (
     <>
@@ -10,9 +12,7 @@ export default function PokemonCard({ pokemon }: { pokemon: Pokemon }) {
             <a href="#" className="btn btn-primary">
               Detail
             </a>
-            <a href="#" className="btn btn-primary">
-              Delete
-            </a>
+            <DeleteButton id={pokemon.id} />
           </div>
         </div>
       </div>

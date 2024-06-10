@@ -9,6 +9,14 @@ export async function getData(filter?: string): Promise<Pokemon[]> {
   //   console.log(pokemon);
   return pokemon;
 }
+export async function getPokemonById(id: string): Promise<Pokemon> {
+  const res = await fetch("http://localhost:3001/pokemon/" + id, {
+    method: "GET",
+  });
+  const pokemon = await res.json();
+  //   console.log(pokemon);
+  return pokemon;
+}
 
 export async function createNewPokemon({
   name,
@@ -22,8 +30,14 @@ export async function createNewPokemon({
     body: JSON.stringify({ name, description, weight, image, type }),
     headers: { "Content-Type": "application/json" },
   });
-  console.log(res);
 
   revalidatePath("/");
   redirect("/");
+}
+
+export async function deletePokemon(id: number) {
+  await fetch("http://localhost:3001/pokemon/" + id, {
+    method: "DELETE",
+  });
+  revalidatePath("/");
 }

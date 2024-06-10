@@ -1,10 +1,22 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import PokemonCard from "@/components/Card";
+import { getData } from "@/action";
 
-export default function Home() {
+export default async function Home() {
+  const pokemons = await getData();
+  console.log(pokemons);
+
   return (
     <main>
-      <div>tes</div>
+      <div className="container mt-5">
+        <h1 className="display-5">Pokemon List</h1>
+        <div className="d-flex justify-content-around">
+          {pokemons.map((e) => {
+            return <PokemonCard key={e.id} pokemon={e}></PokemonCard>;
+          })}
+        </div>
+      </div>
     </main>
   );
 }

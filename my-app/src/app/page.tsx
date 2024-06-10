@@ -11,7 +11,7 @@ export default async function Home() {
     <main>
       <div className="container mt-5">
         <h1 className="display-5">Pokemon List</h1>
-        <div className="d-flex justify-content-around">
+        <div className="d-flex justify-content-around flex-wrap gap-5">
           {pokemons.map((e) => {
             return <PokemonCard key={e.id} pokemon={e}></PokemonCard>;
           })}

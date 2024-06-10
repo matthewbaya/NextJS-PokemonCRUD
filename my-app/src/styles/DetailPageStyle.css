@@ -1,0 +1,17 @@
+.poke h2{
+    color: gray;
+    font-size: 1rem;
+}
+.poke p{
+    color: black;
+    font-size: large;
+}
+.poke .green-text{
+    color: green;
+}
+.poke .red-text{
+    color: red;
+}
+.poke .blue-text{
+    color: aqua;
+}

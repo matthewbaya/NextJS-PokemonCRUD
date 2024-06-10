@@ -1,3 +1,4 @@
+import Link from "next/link";
 import DeleteButton from "./DeleteButton";
 
 export default function PokemonCard({ pokemon }: { pokemon: Pokemon }) {
@@ -9,9 +10,9 @@ export default function PokemonCard({ pokemon }: { pokemon: Pokemon }) {
           <h5 className="card-title">{pokemon.name}</h5>
           <p className="card-text">{pokemon.description}</p>
           <div className="d-flex justify-content-around">
-            <a href="#" className="btn btn-primary">
+            <Link href={`/pokemon/${pokemon.id}`} className="btn btn-primary">
               Detail
-            </a>
+            </Link>
             <DeleteButton id={pokemon.id} />
           </div>
         </div>

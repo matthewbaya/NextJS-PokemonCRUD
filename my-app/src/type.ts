@@ -6,3 +6,10 @@ type Pokemon = {
   weight: string;
   image: string;
 };
+type NewPokemon = {
+  name: string;
+  type: string;
+  description: string;
+  weight: string;
+  image: string;
+};

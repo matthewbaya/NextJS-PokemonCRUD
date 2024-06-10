@@ -1,3 +1,7 @@
+"use client";
+
+import Link from "next/link";
+
 export default function Navbar() {
   return (
     <>
@@ -20,25 +24,29 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="#">
+                <Link className="nav-link" aria-current="page" href="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" href="/create-pokemon">
                   Add
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" href="/fire">
                   Fire
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link">Water</a>
+                <Link href="/water" className="nav-link">
+                  Water
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link">Grass</a>
+                <Link href="/grass" className="nav-link">
+                  Grass
+                </Link>
               </li>
             </ul>
           </div>

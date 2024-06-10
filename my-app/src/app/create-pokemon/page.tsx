@@ -1,6 +1,7 @@
 "use client";
 import { createNewPokemon } from "@/action";
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 export default function CreatePokemon() {
   const [name, setName] = useState("");
@@ -8,15 +9,51 @@ export default function CreatePokemon() {
   const [weight, setWeight] = useState("");
   const [image, setImage] = useState("");
   const [type, setType] = useState("");
+  const [error, setError] = useState("");
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    createNewPokemon({ name, description, weight, image, type });
+    if (!name) {
+      //   setError("Please input the Pokemon's name");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please input the Pokemon's name",
+      });
+    } else if (!description) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please input the Pokemon's description",
+      });
+    } else if (!weight) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please input the Pokemon's weight",
+      });
+    } else if (!image) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please input the Pokemon's image",
+      });
+    } else if (!type) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please input the Pokemon's type",
+      });
+    } else {
+      createNewPokemon({ name, description, weight, image, type });
+    }
   }
+
   return (
     <>
       <div className="container mt-5">
         <h1>Add New Pokemon</h1>
+        {error && <p>{error}</p>}
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label className="form-label">Name</label>
